@@ -1,0 +1,26 @@
+spring.cloud.stream:
+  function:
+    definition: itemProcessor
+  # Processors
+  bindings:
+    # green
+    itemProcessor-in-0:
+      destination: order-validated
+    itemProcessor-out-0:
+      destination: red-item
+    itemProcessor-out-1:
+      destination: blue-item
+    itemProcessor-out-2:
+      destination: green-item
+  kafka:
+    streams:
+      binder:
+        applicationId: kafka-cqrs-query-1
+        configuration:
+          schema.registry.url: http://localhost:8081
+          commit.interval.ms: 100
+          default:
+            key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+            value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+
+server.port: 9008

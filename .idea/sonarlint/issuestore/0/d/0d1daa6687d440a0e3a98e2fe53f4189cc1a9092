@@ -1,0 +1,54 @@
+
+a
+java:S1301_"KReplace this "switch" statement by "if" statements to increase readability.(ÑàÁ”
+a
+java:S1301h"KReplace this "switch" statement by "if" statements to increase readability.(ÑàÁ”
+g
+java:S1301¢"KReplace this "switch" statement by "if" statements to increase readability.(ÑÖ‚—ÿÿÿÿÿ
+f	java:S117^"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ûùõú
+k	java:S117g"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®•’ûÿÿÿÿ
+k	java:S117g"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®•’ûÿÿÿÿ
+W
+java:S1128"ARemove this unused import 'org.apache.avro.generic.GenericArray'.(é¥œÿ
+l
+java:S3008"QRename this field "MODEL$" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Å’æ›øÿÿÿÿ
+t
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ˆ§ÄÄüÿÿÿÿ
+o
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(’¹±¾
+o
+java:S22933"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ş‚Àè
+K
+java:S1133J"5Do not forget to remove this deprecated code someday.(£øÜÑ
+>
+java:S1123J"(Add the missing @deprecated Javadoc tag.(£øÜÑ
+G
+java:S1874X",Remove this use of "name"; it is deprecated.(É´“ıÿÿÿÿ
+B
+java:S1874`",Remove this use of "name"; it is deprecated.(´Êºã
+G
+java:S1874i",Remove this use of "name"; it is deprecated.(ã…¸‹ûÿÿÿÿ
+G
+java:S1874s",Remove this use of "name"; it is deprecated.(»Ã÷¤øÿÿÿÿ
+B
+java:S1874|",Remove this use of "name"; it is deprecated.(¦ÔÓ‚
+C
+java:S1874Á",Remove this use of "name"; it is deprecated.(î’ß‘
+C
+java:S1874Â",Remove this use of "name"; it is deprecated.(ª¶Ç×
+C
+java:S1874ô",Remove this use of "name"; it is deprecated.(¼Ô´í
+B
+java:S1874•",Remove this use of "name"; it is deprecated.(–úšu
+H
+java:S1874",Remove this use of "name"; it is deprecated.(­¾Ã–şÿÿÿÿ
+H
+java:S1874",Remove this use of "name"; it is deprecated.(­¾Ã–şÿÿÿÿ
+H
+java:S1874",Remove this use of "name"; it is deprecated.(­¾Ã–şÿÿÿÿ
+H
+java:S1874¤",Remove this use of "name"; it is deprecated.(­¾Ã–şÿÿÿÿ
+H
+java:S1874¤",Remove this use of "name"; it is deprecated.(­¾Ã–şÿÿÿÿ
+H
+java:S1874¤",Remove this use of "name"; it is deprecated.(­¾Ã–şÿÿÿÿ

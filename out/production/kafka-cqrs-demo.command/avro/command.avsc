@@ -1,0 +1,11 @@
+{
+  "namespace": "com.example",
+  "type": "record",
+  "name": "Command",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string"
+    }
+  ]
+}

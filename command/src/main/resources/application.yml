@@ -1,0 +1,31 @@
+spring.cloud.stream:
+  function:
+    definition: orderSupplier;orderProcessor
+  bindings:
+    orderSupplier-out-0:
+      destination: order-received
+      producer:
+        useNativeEncoding: true
+    orderProcessor-in-0:
+      destination: order-received
+    orderProcessor-out-0:
+      destination: order-validated
+  kafka:
+    bindings:
+      orderSupplier-out-0:
+        producer:
+          configuration:
+            key.serializer: org.apache.kafka.common.serialization.StringSerializer
+            value.serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+            schema.registry.url: http://localhost:8081
+    streams:
+      binder:
+        applicationId: kafka-cqrs-command
+        configuration:
+          schema.registry.url: http://localhost:8081
+          commit.interval.ms: 100
+          default:
+            key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+            value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+
+server.port: 9009

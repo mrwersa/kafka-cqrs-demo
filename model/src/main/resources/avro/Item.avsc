@@ -1,0 +1,19 @@
+{
+  "namespace": "com.example.query.model",
+  "type": "record",
+  "name": "Item",
+  "fields": [
+    {
+      "name": "item",
+      "type": "string"
+    },
+    {
+      "name": "colour",
+      "type": "string"
+    },
+    {
+      "name": "price",
+      "type": "double"
+    }
+  ]
+}

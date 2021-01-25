@@ -1,0 +1,33 @@
+{
+  "namespace": "com.example.command.model",
+  "type": "record",
+  "name": "OrderValidated",
+  "fields": [
+    {
+      "name": "customerId",
+      "type": "string"
+    },
+    {
+      "name": "item",
+      "type": "string"
+    },
+    {
+      "name": "colour",
+      "type": "string"
+    },
+    {
+      "name": "price",
+      "type": "double"
+    },
+    {
+      "name": "ts_received",
+      "type": "long",
+      "default": 0
+    },
+    {
+      "name": "ts_validated",
+      "type": "long",
+      "default": 0
+    }
+  ]
+}
