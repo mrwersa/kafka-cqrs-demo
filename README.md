@@ -1,2 +1,2 @@
 # kafka-cqrs-demo
- A CQRS implementation with Kafka
+A CQRS implementation using Apache Kafka
