@@ -26,15 +26,15 @@
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,
 # since they will be recreated, and may cause churn.  Uncomment if using
- auto-import.
- .idea/artifacts
- .idea/compiler.xml
- .idea/jarRepositories.xml
- .idea/modules.xml
- .idea/*.iml
- .idea/modules
- *.iml
- *.ipr
+auto-import.
+.idea/artifacts
+.idea/compiler.xml
+.idea/jarRepositories.xml
+.idea/modules.xml
+.idea/*.iml
+.idea/modules
+*.iml
+*.ipr
 
 # CMake
 cmake-build-*/
@@ -137,3 +137,4 @@ tools/gulp-tasks/cldr/cldr-data/
 
 # Husky
 .husky/_
+*.iml
