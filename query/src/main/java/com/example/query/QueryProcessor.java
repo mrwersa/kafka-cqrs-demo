@@ -31,7 +31,7 @@ public class QueryProcessor {
                             Mappers.getMapper(ItemMapper.class).orderToItem(order)))
                     .branch(isRed, isBlue, isGreen);
 
-            // materialize the groups items into separate state store
+            // materialize the groups items into separate state stores
             itemsByColour[0]
                     .groupByKey()
                     .aggregate(() -> ItemList.newBuilder().setItems(new ArrayList<>()).build(),
