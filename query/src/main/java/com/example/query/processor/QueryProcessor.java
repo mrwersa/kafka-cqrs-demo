@@ -14,7 +14,7 @@ import java.util.function.Function;
 
 @Component
 public class QueryProcessor {
-    public static final String ITEM_STORE_SUFFIX = "-item-store";
+    public static final String ITEM_STORE_SUFFIX = "-items-store";
 
     Predicate<String, OrderedItem> isItemCheap = (k, v) -> v.getPrice() < 5;
     Predicate<String, OrderedItem> isItemAffordable = (k, v) -> v.getPrice() >= 5 && v.getPrice() < 50;

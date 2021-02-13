@@ -5,13 +5,13 @@ spring.cloud.stream:
   bindings:
     # green
     itemProcessor-in-0:
-      destination: demo-cqrs-order-validated
+      destination: order-validated
     itemProcessor-out-0:
-      destination: demo-cqrs-cheap-item
+      destination: cheap-item-ordered
     itemProcessor-out-1:
-      destination: demo-cqrs-affordable-item
+      destination: affordable-item-ordered
     itemProcessor-out-2:
-      destination: demo-cqrs-expensive-item
+      destination: expensive-item-ordered
   kafka:
     streams:
       binder:

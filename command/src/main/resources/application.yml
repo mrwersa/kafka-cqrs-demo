@@ -3,13 +3,13 @@ spring.cloud.stream:
     definition: orderSupplier;orderProcessor
   bindings:
     orderSupplier-out-0:
-      destination: demo-cqrs-order-received
+      destination: order-received
       producer:
         useNativeEncoding: true
     orderProcessor-in-0:
-      destination: demo-cqrs-order-received
+      destination: order-received
     orderProcessor-out-0:
-      destination: demo-cqrs-order-validated
+      destination: order-validated
   kafka:
     bindings:
       orderSupplier-out-0:
