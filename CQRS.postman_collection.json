@@ -1,0 +1,92 @@
+{
+	"info": {
+		"_postman_id": "5341c4ae-2ea2-42eb-9b00-919adff29b64",
+		"name": "CQRS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Command: create an order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customerId\": \"customer1\",\n    \"itemLabel\": \"Notebook\",\n    \"itemPrice\": 4.0\n}"
+				},
+				"url": {
+					"raw": "{{commandBaseUrl}}/orders",
+					"host": [
+						"{{commandBaseUrl}}"
+					],
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Query: get orders by customer id and price",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{queryBaseUrl}}/orders?customerId=customer1&price=CHEAP",
+					"host": [
+						"{{queryBaseUrl}}"
+					],
+					"path": [
+						"orders"
+					],
+					"query": [
+						{
+							"key": "customerId",
+							"value": "customer1"
+						},
+						{
+							"key": "price",
+							"value": "CHEAP"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "commandBaseUrl",
+			"value": "http://localhost:9001"
+		},
+		{
+			"key": "queryBaseUrl",
+			"value": "http://localhost:9002"
+		}
+	]
+}
