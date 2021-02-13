@@ -13,24 +13,24 @@ import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
-public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -4902329554999187417L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"OrderValidated\",\"namespace\":\"com.example.command.model\",\"fields\":[{\"name\":\"customerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"item\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"colour\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"price\",\"type\":\"double\"},{\"name\":\"ts_received\",\"type\":\"long\",\"default\":0},{\"name\":\"ts_validated\",\"type\":\"long\",\"default\":0}]}");
+public class ValidatedOrder extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  private static final long serialVersionUID = 5358663943482473189L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ValidatedOrder\",\"namespace\":\"com.example.command.model\",\"fields\":[{\"name\":\"orderId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"customerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"itemLabel\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"itemPrice\",\"type\":\"double\"},{\"name\":\"ts_received\",\"type\":\"long\",\"default\":0},{\"name\":\"ts_validated\",\"type\":\"long\",\"default\":0}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
 
-  private static final BinaryMessageEncoder<OrderValidated> ENCODER =
-      new BinaryMessageEncoder<OrderValidated>(MODEL$, SCHEMA$);
+  private static final BinaryMessageEncoder<ValidatedOrder> ENCODER =
+      new BinaryMessageEncoder<ValidatedOrder>(MODEL$, SCHEMA$);
 
-  private static final BinaryMessageDecoder<OrderValidated> DECODER =
-      new BinaryMessageDecoder<OrderValidated>(MODEL$, SCHEMA$);
+  private static final BinaryMessageDecoder<ValidatedOrder> DECODER =
+      new BinaryMessageDecoder<ValidatedOrder>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
    * @return the message encoder used by this class
    */
-  public static BinaryMessageEncoder<OrderValidated> getEncoder() {
+  public static BinaryMessageEncoder<ValidatedOrder> getEncoder() {
     return ENCODER;
   }
 
@@ -38,7 +38,7 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
    * Return the BinaryMessageDecoder instance used by this class.
    * @return the message decoder used by this class
    */
-  public static BinaryMessageDecoder<OrderValidated> getDecoder() {
+  public static BinaryMessageDecoder<ValidatedOrder> getDecoder() {
     return DECODER;
   }
 
@@ -47,12 +47,12 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
    * @param resolver a {@link SchemaStore} used to find schemas by fingerprint
    * @return a BinaryMessageDecoder instance for this class backed by the given SchemaStore
    */
-  public static BinaryMessageDecoder<OrderValidated> createDecoder(SchemaStore resolver) {
-    return new BinaryMessageDecoder<OrderValidated>(MODEL$, SCHEMA$, resolver);
+  public static BinaryMessageDecoder<ValidatedOrder> createDecoder(SchemaStore resolver) {
+    return new BinaryMessageDecoder<ValidatedOrder>(MODEL$, SCHEMA$, resolver);
   }
 
   /**
-   * Serializes this OrderValidated to a ByteBuffer.
+   * Serializes this ValidatedOrder to a ByteBuffer.
    * @return a buffer holding the serialized data for this instance
    * @throws java.io.IOException if this instance could not be serialized
    */
@@ -61,20 +61,20 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
   }
 
   /**
-   * Deserializes a OrderValidated from a ByteBuffer.
+   * Deserializes a ValidatedOrder from a ByteBuffer.
    * @param b a byte buffer holding serialized data for an instance of this class
-   * @return a OrderValidated instance decoded from the given buffer
+   * @return a ValidatedOrder instance decoded from the given buffer
    * @throws java.io.IOException if the given bytes could not be deserialized into an instance of this class
    */
-  public static OrderValidated fromByteBuffer(
+  public static ValidatedOrder fromByteBuffer(
       java.nio.ByteBuffer b) throws java.io.IOException {
     return DECODER.decode(b);
   }
 
+  @Deprecated public java.lang.String orderId;
   @Deprecated public java.lang.String customerId;
-  @Deprecated public java.lang.String item;
-  @Deprecated public java.lang.String colour;
-  @Deprecated public double price;
+  @Deprecated public java.lang.String itemLabel;
+  @Deprecated public double itemPrice;
   @Deprecated public long ts_received;
   @Deprecated public long ts_validated;
 
@@ -83,22 +83,22 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
    * to their default values from the schema.  If that is desired then
    * one should use <code>newBuilder()</code>.
    */
-  public OrderValidated() {}
+  public ValidatedOrder() {}
 
   /**
    * All-args constructor.
+   * @param orderId The new value for orderId
    * @param customerId The new value for customerId
-   * @param item The new value for item
-   * @param colour The new value for colour
-   * @param price The new value for price
+   * @param itemLabel The new value for itemLabel
+   * @param itemPrice The new value for itemPrice
    * @param ts_received The new value for ts_received
    * @param ts_validated The new value for ts_validated
    */
-  public OrderValidated(java.lang.String customerId, java.lang.String item, java.lang.String colour, java.lang.Double price, java.lang.Long ts_received, java.lang.Long ts_validated) {
+  public ValidatedOrder(java.lang.String orderId, java.lang.String customerId, java.lang.String itemLabel, java.lang.Double itemPrice, java.lang.Long ts_received, java.lang.Long ts_validated) {
+    this.orderId = orderId;
     this.customerId = customerId;
-    this.item = item;
-    this.colour = colour;
-    this.price = price;
+    this.itemLabel = itemLabel;
+    this.itemPrice = itemPrice;
     this.ts_received = ts_received;
     this.ts_validated = ts_validated;
   }
@@ -108,10 +108,10 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
   // Used by DatumWriter.  Applications should not call.
   public java.lang.Object get(int field$) {
     switch (field$) {
-    case 0: return customerId;
-    case 1: return item;
-    case 2: return colour;
-    case 3: return price;
+    case 0: return orderId;
+    case 1: return customerId;
+    case 2: return itemLabel;
+    case 3: return itemPrice;
     case 4: return ts_received;
     case 5: return ts_validated;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
@@ -122,14 +122,31 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: customerId = value$ != null ? value$.toString() : null; break;
-    case 1: item = value$ != null ? value$.toString() : null; break;
-    case 2: colour = value$ != null ? value$.toString() : null; break;
-    case 3: price = (java.lang.Double)value$; break;
+    case 0: orderId = value$ != null ? value$.toString() : null; break;
+    case 1: customerId = value$ != null ? value$.toString() : null; break;
+    case 2: itemLabel = value$ != null ? value$.toString() : null; break;
+    case 3: itemPrice = (java.lang.Double)value$; break;
     case 4: ts_received = (java.lang.Long)value$; break;
     case 5: ts_validated = (java.lang.Long)value$; break;
     default: throw new org.apache.avro.AvroRuntimeException("Bad index");
     }
+  }
+
+  /**
+   * Gets the value of the 'orderId' field.
+   * @return The value of the 'orderId' field.
+   */
+  public java.lang.String getOrderId() {
+    return orderId;
+  }
+
+
+  /**
+   * Sets the value of the 'orderId' field.
+   * @param value the value to set.
+   */
+  public void setOrderId(java.lang.String value) {
+    this.orderId = value;
   }
 
   /**
@@ -150,54 +167,37 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
   }
 
   /**
-   * Gets the value of the 'item' field.
-   * @return The value of the 'item' field.
+   * Gets the value of the 'itemLabel' field.
+   * @return The value of the 'itemLabel' field.
    */
-  public java.lang.String getItem() {
-    return item;
+  public java.lang.String getItemLabel() {
+    return itemLabel;
   }
 
 
   /**
-   * Sets the value of the 'item' field.
+   * Sets the value of the 'itemLabel' field.
    * @param value the value to set.
    */
-  public void setItem(java.lang.String value) {
-    this.item = value;
+  public void setItemLabel(java.lang.String value) {
+    this.itemLabel = value;
   }
 
   /**
-   * Gets the value of the 'colour' field.
-   * @return The value of the 'colour' field.
+   * Gets the value of the 'itemPrice' field.
+   * @return The value of the 'itemPrice' field.
    */
-  public java.lang.String getColour() {
-    return colour;
+  public double getItemPrice() {
+    return itemPrice;
   }
 
 
   /**
-   * Sets the value of the 'colour' field.
+   * Sets the value of the 'itemPrice' field.
    * @param value the value to set.
    */
-  public void setColour(java.lang.String value) {
-    this.colour = value;
-  }
-
-  /**
-   * Gets the value of the 'price' field.
-   * @return The value of the 'price' field.
-   */
-  public double getPrice() {
-    return price;
-  }
-
-
-  /**
-   * Sets the value of the 'price' field.
-   * @param value the value to set.
-   */
-  public void setPrice(double value) {
-    this.price = value;
+  public void setItemPrice(double value) {
+    this.itemPrice = value;
   }
 
   /**
@@ -235,50 +235,50 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
   }
 
   /**
-   * Creates a new OrderValidated RecordBuilder.
-   * @return A new OrderValidated RecordBuilder
+   * Creates a new ValidatedOrder RecordBuilder.
+   * @return A new ValidatedOrder RecordBuilder
    */
-  public static com.example.command.model.OrderValidated.Builder newBuilder() {
-    return new com.example.command.model.OrderValidated.Builder();
+  public static com.example.command.model.ValidatedOrder.Builder newBuilder() {
+    return new com.example.command.model.ValidatedOrder.Builder();
   }
 
   /**
-   * Creates a new OrderValidated RecordBuilder by copying an existing Builder.
+   * Creates a new ValidatedOrder RecordBuilder by copying an existing Builder.
    * @param other The existing builder to copy.
-   * @return A new OrderValidated RecordBuilder
+   * @return A new ValidatedOrder RecordBuilder
    */
-  public static com.example.command.model.OrderValidated.Builder newBuilder(com.example.command.model.OrderValidated.Builder other) {
+  public static com.example.command.model.ValidatedOrder.Builder newBuilder(com.example.command.model.ValidatedOrder.Builder other) {
     if (other == null) {
-      return new com.example.command.model.OrderValidated.Builder();
+      return new com.example.command.model.ValidatedOrder.Builder();
     } else {
-      return new com.example.command.model.OrderValidated.Builder(other);
+      return new com.example.command.model.ValidatedOrder.Builder(other);
     }
   }
 
   /**
-   * Creates a new OrderValidated RecordBuilder by copying an existing OrderValidated instance.
+   * Creates a new ValidatedOrder RecordBuilder by copying an existing ValidatedOrder instance.
    * @param other The existing instance to copy.
-   * @return A new OrderValidated RecordBuilder
+   * @return A new ValidatedOrder RecordBuilder
    */
-  public static com.example.command.model.OrderValidated.Builder newBuilder(com.example.command.model.OrderValidated other) {
+  public static com.example.command.model.ValidatedOrder.Builder newBuilder(com.example.command.model.ValidatedOrder other) {
     if (other == null) {
-      return new com.example.command.model.OrderValidated.Builder();
+      return new com.example.command.model.ValidatedOrder.Builder();
     } else {
-      return new com.example.command.model.OrderValidated.Builder(other);
+      return new com.example.command.model.ValidatedOrder.Builder(other);
     }
   }
 
   /**
-   * RecordBuilder for OrderValidated instances.
+   * RecordBuilder for ValidatedOrder instances.
    */
   @org.apache.avro.specific.AvroGenerated
-  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<OrderValidated>
-    implements org.apache.avro.data.RecordBuilder<OrderValidated> {
+  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<ValidatedOrder>
+    implements org.apache.avro.data.RecordBuilder<ValidatedOrder> {
 
+    private java.lang.String orderId;
     private java.lang.String customerId;
-    private java.lang.String item;
-    private java.lang.String colour;
-    private double price;
+    private java.lang.String itemLabel;
+    private double itemPrice;
     private long ts_received;
     private long ts_validated;
 
@@ -291,22 +291,22 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.example.command.model.OrderValidated.Builder other) {
+    private Builder(com.example.command.model.ValidatedOrder.Builder other) {
       super(other);
-      if (isValidValue(fields()[0], other.customerId)) {
-        this.customerId = data().deepCopy(fields()[0].schema(), other.customerId);
+      if (isValidValue(fields()[0], other.orderId)) {
+        this.orderId = data().deepCopy(fields()[0].schema(), other.orderId);
         fieldSetFlags()[0] = other.fieldSetFlags()[0];
       }
-      if (isValidValue(fields()[1], other.item)) {
-        this.item = data().deepCopy(fields()[1].schema(), other.item);
+      if (isValidValue(fields()[1], other.customerId)) {
+        this.customerId = data().deepCopy(fields()[1].schema(), other.customerId);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
-      if (isValidValue(fields()[2], other.colour)) {
-        this.colour = data().deepCopy(fields()[2].schema(), other.colour);
+      if (isValidValue(fields()[2], other.itemLabel)) {
+        this.itemLabel = data().deepCopy(fields()[2].schema(), other.itemLabel);
         fieldSetFlags()[2] = other.fieldSetFlags()[2];
       }
-      if (isValidValue(fields()[3], other.price)) {
-        this.price = data().deepCopy(fields()[3].schema(), other.price);
+      if (isValidValue(fields()[3], other.itemPrice)) {
+        this.itemPrice = data().deepCopy(fields()[3].schema(), other.itemPrice);
         fieldSetFlags()[3] = other.fieldSetFlags()[3];
       }
       if (isValidValue(fields()[4], other.ts_received)) {
@@ -320,25 +320,25 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
     }
 
     /**
-     * Creates a Builder by copying an existing OrderValidated instance
+     * Creates a Builder by copying an existing ValidatedOrder instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.example.command.model.OrderValidated other) {
+    private Builder(com.example.command.model.ValidatedOrder other) {
       super(SCHEMA$);
-      if (isValidValue(fields()[0], other.customerId)) {
-        this.customerId = data().deepCopy(fields()[0].schema(), other.customerId);
+      if (isValidValue(fields()[0], other.orderId)) {
+        this.orderId = data().deepCopy(fields()[0].schema(), other.orderId);
         fieldSetFlags()[0] = true;
       }
-      if (isValidValue(fields()[1], other.item)) {
-        this.item = data().deepCopy(fields()[1].schema(), other.item);
+      if (isValidValue(fields()[1], other.customerId)) {
+        this.customerId = data().deepCopy(fields()[1].schema(), other.customerId);
         fieldSetFlags()[1] = true;
       }
-      if (isValidValue(fields()[2], other.colour)) {
-        this.colour = data().deepCopy(fields()[2].schema(), other.colour);
+      if (isValidValue(fields()[2], other.itemLabel)) {
+        this.itemLabel = data().deepCopy(fields()[2].schema(), other.itemLabel);
         fieldSetFlags()[2] = true;
       }
-      if (isValidValue(fields()[3], other.price)) {
-        this.price = data().deepCopy(fields()[3].schema(), other.price);
+      if (isValidValue(fields()[3], other.itemPrice)) {
+        this.itemPrice = data().deepCopy(fields()[3].schema(), other.itemPrice);
         fieldSetFlags()[3] = true;
       }
       if (isValidValue(fields()[4], other.ts_received)) {
@@ -349,6 +349,46 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
         this.ts_validated = data().deepCopy(fields()[5].schema(), other.ts_validated);
         fieldSetFlags()[5] = true;
       }
+    }
+
+    /**
+      * Gets the value of the 'orderId' field.
+      * @return The value.
+      */
+    public java.lang.String getOrderId() {
+      return orderId;
+    }
+
+
+    /**
+      * Sets the value of the 'orderId' field.
+      * @param value The value of 'orderId'.
+      * @return This builder.
+      */
+    public com.example.command.model.ValidatedOrder.Builder setOrderId(java.lang.String value) {
+      validate(fields()[0], value);
+      this.orderId = value;
+      fieldSetFlags()[0] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'orderId' field has been set.
+      * @return True if the 'orderId' field has been set, false otherwise.
+      */
+    public boolean hasOrderId() {
+      return fieldSetFlags()[0];
+    }
+
+
+    /**
+      * Clears the value of the 'orderId' field.
+      * @return This builder.
+      */
+    public com.example.command.model.ValidatedOrder.Builder clearOrderId() {
+      orderId = null;
+      fieldSetFlags()[0] = false;
+      return this;
     }
 
     /**
@@ -365,10 +405,10 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
       * @param value The value of 'customerId'.
       * @return This builder.
       */
-    public com.example.command.model.OrderValidated.Builder setCustomerId(java.lang.String value) {
-      validate(fields()[0], value);
+    public com.example.command.model.ValidatedOrder.Builder setCustomerId(java.lang.String value) {
+      validate(fields()[1], value);
       this.customerId = value;
-      fieldSetFlags()[0] = true;
+      fieldSetFlags()[1] = true;
       return this;
     }
 
@@ -377,7 +417,7 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
       * @return True if the 'customerId' field has been set, false otherwise.
       */
     public boolean hasCustomerId() {
-      return fieldSetFlags()[0];
+      return fieldSetFlags()[1];
     }
 
 
@@ -385,127 +425,87 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
       * Clears the value of the 'customerId' field.
       * @return This builder.
       */
-    public com.example.command.model.OrderValidated.Builder clearCustomerId() {
+    public com.example.command.model.ValidatedOrder.Builder clearCustomerId() {
       customerId = null;
-      fieldSetFlags()[0] = false;
-      return this;
-    }
-
-    /**
-      * Gets the value of the 'item' field.
-      * @return The value.
-      */
-    public java.lang.String getItem() {
-      return item;
-    }
-
-
-    /**
-      * Sets the value of the 'item' field.
-      * @param value The value of 'item'.
-      * @return This builder.
-      */
-    public com.example.command.model.OrderValidated.Builder setItem(java.lang.String value) {
-      validate(fields()[1], value);
-      this.item = value;
-      fieldSetFlags()[1] = true;
-      return this;
-    }
-
-    /**
-      * Checks whether the 'item' field has been set.
-      * @return True if the 'item' field has been set, false otherwise.
-      */
-    public boolean hasItem() {
-      return fieldSetFlags()[1];
-    }
-
-
-    /**
-      * Clears the value of the 'item' field.
-      * @return This builder.
-      */
-    public com.example.command.model.OrderValidated.Builder clearItem() {
-      item = null;
       fieldSetFlags()[1] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'colour' field.
+      * Gets the value of the 'itemLabel' field.
       * @return The value.
       */
-    public java.lang.String getColour() {
-      return colour;
+    public java.lang.String getItemLabel() {
+      return itemLabel;
     }
 
 
     /**
-      * Sets the value of the 'colour' field.
-      * @param value The value of 'colour'.
+      * Sets the value of the 'itemLabel' field.
+      * @param value The value of 'itemLabel'.
       * @return This builder.
       */
-    public com.example.command.model.OrderValidated.Builder setColour(java.lang.String value) {
+    public com.example.command.model.ValidatedOrder.Builder setItemLabel(java.lang.String value) {
       validate(fields()[2], value);
-      this.colour = value;
+      this.itemLabel = value;
       fieldSetFlags()[2] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'colour' field has been set.
-      * @return True if the 'colour' field has been set, false otherwise.
+      * Checks whether the 'itemLabel' field has been set.
+      * @return True if the 'itemLabel' field has been set, false otherwise.
       */
-    public boolean hasColour() {
+    public boolean hasItemLabel() {
       return fieldSetFlags()[2];
     }
 
 
     /**
-      * Clears the value of the 'colour' field.
+      * Clears the value of the 'itemLabel' field.
       * @return This builder.
       */
-    public com.example.command.model.OrderValidated.Builder clearColour() {
-      colour = null;
+    public com.example.command.model.ValidatedOrder.Builder clearItemLabel() {
+      itemLabel = null;
       fieldSetFlags()[2] = false;
       return this;
     }
 
     /**
-      * Gets the value of the 'price' field.
+      * Gets the value of the 'itemPrice' field.
       * @return The value.
       */
-    public double getPrice() {
-      return price;
+    public double getItemPrice() {
+      return itemPrice;
     }
 
 
     /**
-      * Sets the value of the 'price' field.
-      * @param value The value of 'price'.
+      * Sets the value of the 'itemPrice' field.
+      * @param value The value of 'itemPrice'.
       * @return This builder.
       */
-    public com.example.command.model.OrderValidated.Builder setPrice(double value) {
+    public com.example.command.model.ValidatedOrder.Builder setItemPrice(double value) {
       validate(fields()[3], value);
-      this.price = value;
+      this.itemPrice = value;
       fieldSetFlags()[3] = true;
       return this;
     }
 
     /**
-      * Checks whether the 'price' field has been set.
-      * @return True if the 'price' field has been set, false otherwise.
+      * Checks whether the 'itemPrice' field has been set.
+      * @return True if the 'itemPrice' field has been set, false otherwise.
       */
-    public boolean hasPrice() {
+    public boolean hasItemPrice() {
       return fieldSetFlags()[3];
     }
 
 
     /**
-      * Clears the value of the 'price' field.
+      * Clears the value of the 'itemPrice' field.
       * @return This builder.
       */
-    public com.example.command.model.OrderValidated.Builder clearPrice() {
+    public com.example.command.model.ValidatedOrder.Builder clearItemPrice() {
       fieldSetFlags()[3] = false;
       return this;
     }
@@ -524,7 +524,7 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
       * @param value The value of 'ts_received'.
       * @return This builder.
       */
-    public com.example.command.model.OrderValidated.Builder setTsReceived(long value) {
+    public com.example.command.model.ValidatedOrder.Builder setTsReceived(long value) {
       validate(fields()[4], value);
       this.ts_received = value;
       fieldSetFlags()[4] = true;
@@ -544,7 +544,7 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
       * Clears the value of the 'ts_received' field.
       * @return This builder.
       */
-    public com.example.command.model.OrderValidated.Builder clearTsReceived() {
+    public com.example.command.model.ValidatedOrder.Builder clearTsReceived() {
       fieldSetFlags()[4] = false;
       return this;
     }
@@ -563,7 +563,7 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
       * @param value The value of 'ts_validated'.
       * @return This builder.
       */
-    public com.example.command.model.OrderValidated.Builder setTsValidated(long value) {
+    public com.example.command.model.ValidatedOrder.Builder setTsValidated(long value) {
       validate(fields()[5], value);
       this.ts_validated = value;
       fieldSetFlags()[5] = true;
@@ -583,20 +583,20 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
       * Clears the value of the 'ts_validated' field.
       * @return This builder.
       */
-    public com.example.command.model.OrderValidated.Builder clearTsValidated() {
+    public com.example.command.model.ValidatedOrder.Builder clearTsValidated() {
       fieldSetFlags()[5] = false;
       return this;
     }
 
     @Override
     @SuppressWarnings("unchecked")
-    public OrderValidated build() {
+    public ValidatedOrder build() {
       try {
-        OrderValidated record = new OrderValidated();
-        record.customerId = fieldSetFlags()[0] ? this.customerId : (java.lang.String) defaultValue(fields()[0]);
-        record.item = fieldSetFlags()[1] ? this.item : (java.lang.String) defaultValue(fields()[1]);
-        record.colour = fieldSetFlags()[2] ? this.colour : (java.lang.String) defaultValue(fields()[2]);
-        record.price = fieldSetFlags()[3] ? this.price : (java.lang.Double) defaultValue(fields()[3]);
+        ValidatedOrder record = new ValidatedOrder();
+        record.orderId = fieldSetFlags()[0] ? this.orderId : (java.lang.String) defaultValue(fields()[0]);
+        record.customerId = fieldSetFlags()[1] ? this.customerId : (java.lang.String) defaultValue(fields()[1]);
+        record.itemLabel = fieldSetFlags()[2] ? this.itemLabel : (java.lang.String) defaultValue(fields()[2]);
+        record.itemPrice = fieldSetFlags()[3] ? this.itemPrice : (java.lang.Double) defaultValue(fields()[3]);
         record.ts_received = fieldSetFlags()[4] ? this.ts_received : (java.lang.Long) defaultValue(fields()[4]);
         record.ts_validated = fieldSetFlags()[5] ? this.ts_validated : (java.lang.Long) defaultValue(fields()[5]);
         return record;
@@ -609,8 +609,8 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumWriter<OrderValidated>
-    WRITER$ = (org.apache.avro.io.DatumWriter<OrderValidated>)MODEL$.createDatumWriter(SCHEMA$);
+  private static final org.apache.avro.io.DatumWriter<ValidatedOrder>
+    WRITER$ = (org.apache.avro.io.DatumWriter<ValidatedOrder>)MODEL$.createDatumWriter(SCHEMA$);
 
   @Override public void writeExternal(java.io.ObjectOutput out)
     throws java.io.IOException {
@@ -618,8 +618,8 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumReader<OrderValidated>
-    READER$ = (org.apache.avro.io.DatumReader<OrderValidated>)MODEL$.createDatumReader(SCHEMA$);
+  private static final org.apache.avro.io.DatumReader<ValidatedOrder>
+    READER$ = (org.apache.avro.io.DatumReader<ValidatedOrder>)MODEL$.createDatumReader(SCHEMA$);
 
   @Override public void readExternal(java.io.ObjectInput in)
     throws java.io.IOException {
@@ -631,13 +631,13 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
   @Override public void customEncode(org.apache.avro.io.Encoder out)
     throws java.io.IOException
   {
+    out.writeString(this.orderId);
+
     out.writeString(this.customerId);
 
-    out.writeString(this.item);
+    out.writeString(this.itemLabel);
 
-    out.writeString(this.colour);
-
-    out.writeDouble(this.price);
+    out.writeDouble(this.itemPrice);
 
     out.writeLong(this.ts_received);
 
@@ -650,13 +650,13 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
   {
     org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
     if (fieldOrder == null) {
+      this.orderId = in.readString();
+
       this.customerId = in.readString();
 
-      this.item = in.readString();
+      this.itemLabel = in.readString();
 
-      this.colour = in.readString();
-
-      this.price = in.readDouble();
+      this.itemPrice = in.readDouble();
 
       this.ts_received = in.readLong();
 
@@ -666,19 +666,19 @@ public class OrderValidated extends org.apache.avro.specific.SpecificRecordBase 
       for (int i = 0; i < 6; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
-          this.customerId = in.readString();
+          this.orderId = in.readString();
           break;
 
         case 1:
-          this.item = in.readString();
+          this.customerId = in.readString();
           break;
 
         case 2:
-          this.colour = in.readString();
+          this.itemLabel = in.readString();
           break;
 
         case 3:
-          this.price = in.readDouble();
+          this.itemPrice = in.readDouble();
           break;
 
         case 4:

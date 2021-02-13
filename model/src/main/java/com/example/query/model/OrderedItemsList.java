@@ -13,24 +13,24 @@ import org.apache.avro.message.BinaryMessageDecoder;
 import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
-public class ItemList extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -954641503404925518L;
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"ItemList\",\"namespace\":\"com.example.query.model\",\"fields\":[{\"name\":\"items\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"ItemListRecord\",\"fields\":[{\"name\":\"item\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"colour\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"price\",\"type\":\"double\"}]}}}]}");
+public class OrderedItemsList extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
+  private static final long serialVersionUID = 6492841048581138300L;
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"OrderedItemsList\",\"namespace\":\"com.example.query.model\",\"fields\":[{\"name\":\"items\",\"type\":{\"type\":\"array\",\"items\":{\"type\":\"record\",\"name\":\"OrderedItem\",\"fields\":[{\"name\":\"customerId\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"label\",\"type\":{\"type\":\"string\",\"avro.java.string\":\"String\"}},{\"name\":\"price\",\"type\":\"double\"},{\"name\":\"quantity\",\"type\":\"int\",\"default\":1,\"order\":\"ignore\"}]}}}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static SpecificData MODEL$ = new SpecificData();
 
-  private static final BinaryMessageEncoder<ItemList> ENCODER =
-      new BinaryMessageEncoder<ItemList>(MODEL$, SCHEMA$);
+  private static final BinaryMessageEncoder<OrderedItemsList> ENCODER =
+      new BinaryMessageEncoder<OrderedItemsList>(MODEL$, SCHEMA$);
 
-  private static final BinaryMessageDecoder<ItemList> DECODER =
-      new BinaryMessageDecoder<ItemList>(MODEL$, SCHEMA$);
+  private static final BinaryMessageDecoder<OrderedItemsList> DECODER =
+      new BinaryMessageDecoder<OrderedItemsList>(MODEL$, SCHEMA$);
 
   /**
    * Return the BinaryMessageEncoder instance used by this class.
    * @return the message encoder used by this class
    */
-  public static BinaryMessageEncoder<ItemList> getEncoder() {
+  public static BinaryMessageEncoder<OrderedItemsList> getEncoder() {
     return ENCODER;
   }
 
@@ -38,7 +38,7 @@ public class ItemList extends org.apache.avro.specific.SpecificRecordBase implem
    * Return the BinaryMessageDecoder instance used by this class.
    * @return the message decoder used by this class
    */
-  public static BinaryMessageDecoder<ItemList> getDecoder() {
+  public static BinaryMessageDecoder<OrderedItemsList> getDecoder() {
     return DECODER;
   }
 
@@ -47,12 +47,12 @@ public class ItemList extends org.apache.avro.specific.SpecificRecordBase implem
    * @param resolver a {@link SchemaStore} used to find schemas by fingerprint
    * @return a BinaryMessageDecoder instance for this class backed by the given SchemaStore
    */
-  public static BinaryMessageDecoder<ItemList> createDecoder(SchemaStore resolver) {
-    return new BinaryMessageDecoder<ItemList>(MODEL$, SCHEMA$, resolver);
+  public static BinaryMessageDecoder<OrderedItemsList> createDecoder(SchemaStore resolver) {
+    return new BinaryMessageDecoder<OrderedItemsList>(MODEL$, SCHEMA$, resolver);
   }
 
   /**
-   * Serializes this ItemList to a ByteBuffer.
+   * Serializes this OrderedItemsList to a ByteBuffer.
    * @return a buffer holding the serialized data for this instance
    * @throws java.io.IOException if this instance could not be serialized
    */
@@ -61,30 +61,30 @@ public class ItemList extends org.apache.avro.specific.SpecificRecordBase implem
   }
 
   /**
-   * Deserializes a ItemList from a ByteBuffer.
+   * Deserializes a OrderedItemsList from a ByteBuffer.
    * @param b a byte buffer holding serialized data for an instance of this class
-   * @return a ItemList instance decoded from the given buffer
+   * @return a OrderedItemsList instance decoded from the given buffer
    * @throws java.io.IOException if the given bytes could not be deserialized into an instance of this class
    */
-  public static ItemList fromByteBuffer(
+  public static OrderedItemsList fromByteBuffer(
       java.nio.ByteBuffer b) throws java.io.IOException {
     return DECODER.decode(b);
   }
 
-  @Deprecated public java.util.List<com.example.query.model.ItemListRecord> items;
+   private java.util.List<com.example.query.model.OrderedItem> items;
 
   /**
    * Default constructor.  Note that this does not initialize fields
    * to their default values from the schema.  If that is desired then
    * one should use <code>newBuilder()</code>.
    */
-  public ItemList() {}
+  public OrderedItemsList() {}
 
   /**
    * All-args constructor.
    * @param items The new value for items
    */
-  public ItemList(java.util.List<com.example.query.model.ItemListRecord> items) {
+  public OrderedItemsList(java.util.List<com.example.query.model.OrderedItem> items) {
     this.items = items;
   }
 
@@ -94,7 +94,7 @@ public class ItemList extends org.apache.avro.specific.SpecificRecordBase implem
   public java.lang.Object get(int field$) {
     switch (field$) {
     case 0: return items;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -102,8 +102,8 @@ public class ItemList extends org.apache.avro.specific.SpecificRecordBase implem
   @SuppressWarnings(value="unchecked")
   public void put(int field$, java.lang.Object value$) {
     switch (field$) {
-    case 0: items = (java.util.List<com.example.query.model.ItemListRecord>)value$; break;
-    default: throw new org.apache.avro.AvroRuntimeException("Bad index");
+    case 0: items = (java.util.List<com.example.query.model.OrderedItem>)value$; break;
+    default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
 
@@ -111,7 +111,7 @@ public class ItemList extends org.apache.avro.specific.SpecificRecordBase implem
    * Gets the value of the 'items' field.
    * @return The value of the 'items' field.
    */
-  public java.util.List<com.example.query.model.ItemListRecord> getItems() {
+  public java.util.List<com.example.query.model.OrderedItem> getItems() {
     return items;
   }
 
@@ -120,52 +120,52 @@ public class ItemList extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'items' field.
    * @param value the value to set.
    */
-  public void setItems(java.util.List<com.example.query.model.ItemListRecord> value) {
+  public void setItems(java.util.List<com.example.query.model.OrderedItem> value) {
     this.items = value;
   }
 
   /**
-   * Creates a new ItemList RecordBuilder.
-   * @return A new ItemList RecordBuilder
+   * Creates a new OrderedItemsList RecordBuilder.
+   * @return A new OrderedItemsList RecordBuilder
    */
-  public static com.example.query.model.ItemList.Builder newBuilder() {
-    return new com.example.query.model.ItemList.Builder();
+  public static com.example.query.model.OrderedItemsList.Builder newBuilder() {
+    return new com.example.query.model.OrderedItemsList.Builder();
   }
 
   /**
-   * Creates a new ItemList RecordBuilder by copying an existing Builder.
+   * Creates a new OrderedItemsList RecordBuilder by copying an existing Builder.
    * @param other The existing builder to copy.
-   * @return A new ItemList RecordBuilder
+   * @return A new OrderedItemsList RecordBuilder
    */
-  public static com.example.query.model.ItemList.Builder newBuilder(com.example.query.model.ItemList.Builder other) {
+  public static com.example.query.model.OrderedItemsList.Builder newBuilder(com.example.query.model.OrderedItemsList.Builder other) {
     if (other == null) {
-      return new com.example.query.model.ItemList.Builder();
+      return new com.example.query.model.OrderedItemsList.Builder();
     } else {
-      return new com.example.query.model.ItemList.Builder(other);
+      return new com.example.query.model.OrderedItemsList.Builder(other);
     }
   }
 
   /**
-   * Creates a new ItemList RecordBuilder by copying an existing ItemList instance.
+   * Creates a new OrderedItemsList RecordBuilder by copying an existing OrderedItemsList instance.
    * @param other The existing instance to copy.
-   * @return A new ItemList RecordBuilder
+   * @return A new OrderedItemsList RecordBuilder
    */
-  public static com.example.query.model.ItemList.Builder newBuilder(com.example.query.model.ItemList other) {
+  public static com.example.query.model.OrderedItemsList.Builder newBuilder(com.example.query.model.OrderedItemsList other) {
     if (other == null) {
-      return new com.example.query.model.ItemList.Builder();
+      return new com.example.query.model.OrderedItemsList.Builder();
     } else {
-      return new com.example.query.model.ItemList.Builder(other);
+      return new com.example.query.model.OrderedItemsList.Builder(other);
     }
   }
 
   /**
-   * RecordBuilder for ItemList instances.
+   * RecordBuilder for OrderedItemsList instances.
    */
   @org.apache.avro.specific.AvroGenerated
-  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<ItemList>
-    implements org.apache.avro.data.RecordBuilder<ItemList> {
+  public static class Builder extends org.apache.avro.specific.SpecificRecordBuilderBase<OrderedItemsList>
+    implements org.apache.avro.data.RecordBuilder<OrderedItemsList> {
 
-    private java.util.List<com.example.query.model.ItemListRecord> items;
+    private java.util.List<com.example.query.model.OrderedItem> items;
 
     /** Creates a new Builder */
     private Builder() {
@@ -176,7 +176,7 @@ public class ItemList extends org.apache.avro.specific.SpecificRecordBase implem
      * Creates a Builder by copying an existing Builder.
      * @param other The existing Builder to copy.
      */
-    private Builder(com.example.query.model.ItemList.Builder other) {
+    private Builder(com.example.query.model.OrderedItemsList.Builder other) {
       super(other);
       if (isValidValue(fields()[0], other.items)) {
         this.items = data().deepCopy(fields()[0].schema(), other.items);
@@ -185,10 +185,10 @@ public class ItemList extends org.apache.avro.specific.SpecificRecordBase implem
     }
 
     /**
-     * Creates a Builder by copying an existing ItemList instance
+     * Creates a Builder by copying an existing OrderedItemsList instance
      * @param other The existing instance to copy.
      */
-    private Builder(com.example.query.model.ItemList other) {
+    private Builder(com.example.query.model.OrderedItemsList other) {
       super(SCHEMA$);
       if (isValidValue(fields()[0], other.items)) {
         this.items = data().deepCopy(fields()[0].schema(), other.items);
@@ -200,7 +200,7 @@ public class ItemList extends org.apache.avro.specific.SpecificRecordBase implem
       * Gets the value of the 'items' field.
       * @return The value.
       */
-    public java.util.List<com.example.query.model.ItemListRecord> getItems() {
+    public java.util.List<com.example.query.model.OrderedItem> getItems() {
       return items;
     }
 
@@ -210,7 +210,7 @@ public class ItemList extends org.apache.avro.specific.SpecificRecordBase implem
       * @param value The value of 'items'.
       * @return This builder.
       */
-    public com.example.query.model.ItemList.Builder setItems(java.util.List<com.example.query.model.ItemListRecord> value) {
+    public com.example.query.model.OrderedItemsList.Builder setItems(java.util.List<com.example.query.model.OrderedItem> value) {
       validate(fields()[0], value);
       this.items = value;
       fieldSetFlags()[0] = true;
@@ -230,7 +230,7 @@ public class ItemList extends org.apache.avro.specific.SpecificRecordBase implem
       * Clears the value of the 'items' field.
       * @return This builder.
       */
-    public com.example.query.model.ItemList.Builder clearItems() {
+    public com.example.query.model.OrderedItemsList.Builder clearItems() {
       items = null;
       fieldSetFlags()[0] = false;
       return this;
@@ -238,10 +238,10 @@ public class ItemList extends org.apache.avro.specific.SpecificRecordBase implem
 
     @Override
     @SuppressWarnings("unchecked")
-    public ItemList build() {
+    public OrderedItemsList build() {
       try {
-        ItemList record = new ItemList();
-        record.items = fieldSetFlags()[0] ? this.items : (java.util.List<com.example.query.model.ItemListRecord>) defaultValue(fields()[0]);
+        OrderedItemsList record = new OrderedItemsList();
+        record.items = fieldSetFlags()[0] ? this.items : (java.util.List<com.example.query.model.OrderedItem>) defaultValue(fields()[0]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -252,8 +252,8 @@ public class ItemList extends org.apache.avro.specific.SpecificRecordBase implem
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumWriter<ItemList>
-    WRITER$ = (org.apache.avro.io.DatumWriter<ItemList>)MODEL$.createDatumWriter(SCHEMA$);
+  private static final org.apache.avro.io.DatumWriter<OrderedItemsList>
+    WRITER$ = (org.apache.avro.io.DatumWriter<OrderedItemsList>)MODEL$.createDatumWriter(SCHEMA$);
 
   @Override public void writeExternal(java.io.ObjectOutput out)
     throws java.io.IOException {
@@ -261,8 +261,8 @@ public class ItemList extends org.apache.avro.specific.SpecificRecordBase implem
   }
 
   @SuppressWarnings("unchecked")
-  private static final org.apache.avro.io.DatumReader<ItemList>
-    READER$ = (org.apache.avro.io.DatumReader<ItemList>)MODEL$.createDatumReader(SCHEMA$);
+  private static final org.apache.avro.io.DatumReader<OrderedItemsList>
+    READER$ = (org.apache.avro.io.DatumReader<OrderedItemsList>)MODEL$.createDatumReader(SCHEMA$);
 
   @Override public void readExternal(java.io.ObjectInput in)
     throws java.io.IOException {
@@ -278,7 +278,7 @@ public class ItemList extends org.apache.avro.specific.SpecificRecordBase implem
     out.writeArrayStart();
     out.setItemCount(size0);
     long actualSize0 = 0;
-    for (com.example.query.model.ItemListRecord e0: this.items) {
+    for (com.example.query.model.OrderedItem e0: this.items) {
       actualSize0++;
       out.startItem();
       e0.customEncode(out);
@@ -295,17 +295,17 @@ public class ItemList extends org.apache.avro.specific.SpecificRecordBase implem
     org.apache.avro.Schema.Field[] fieldOrder = in.readFieldOrderIfDiff();
     if (fieldOrder == null) {
       long size0 = in.readArrayStart();
-      java.util.List<com.example.query.model.ItemListRecord> a0 = this.items;
+      java.util.List<com.example.query.model.OrderedItem> a0 = this.items;
       if (a0 == null) {
-        a0 = new SpecificData.Array<com.example.query.model.ItemListRecord>((int)size0, SCHEMA$.getField("items").schema());
+        a0 = new SpecificData.Array<com.example.query.model.OrderedItem>((int)size0, SCHEMA$.getField("items").schema());
         this.items = a0;
       } else a0.clear();
-      SpecificData.Array<com.example.query.model.ItemListRecord> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<com.example.query.model.ItemListRecord>)a0 : null);
+      SpecificData.Array<com.example.query.model.OrderedItem> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<com.example.query.model.OrderedItem>)a0 : null);
       for ( ; 0 < size0; size0 = in.arrayNext()) {
         for ( ; size0 != 0; size0--) {
-          com.example.query.model.ItemListRecord e0 = (ga0 != null ? ga0.peek() : null);
+          com.example.query.model.OrderedItem e0 = (ga0 != null ? ga0.peek() : null);
           if (e0 == null) {
-            e0 = new com.example.query.model.ItemListRecord();
+            e0 = new com.example.query.model.OrderedItem();
           }
           e0.customDecode(in);
           a0.add(e0);
@@ -317,17 +317,17 @@ public class ItemList extends org.apache.avro.specific.SpecificRecordBase implem
         switch (fieldOrder[i].pos()) {
         case 0:
           long size0 = in.readArrayStart();
-          java.util.List<com.example.query.model.ItemListRecord> a0 = this.items;
+          java.util.List<com.example.query.model.OrderedItem> a0 = this.items;
           if (a0 == null) {
-            a0 = new SpecificData.Array<com.example.query.model.ItemListRecord>((int)size0, SCHEMA$.getField("items").schema());
+            a0 = new SpecificData.Array<com.example.query.model.OrderedItem>((int)size0, SCHEMA$.getField("items").schema());
             this.items = a0;
           } else a0.clear();
-          SpecificData.Array<com.example.query.model.ItemListRecord> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<com.example.query.model.ItemListRecord>)a0 : null);
+          SpecificData.Array<com.example.query.model.OrderedItem> ga0 = (a0 instanceof SpecificData.Array ? (SpecificData.Array<com.example.query.model.OrderedItem>)a0 : null);
           for ( ; 0 < size0; size0 = in.arrayNext()) {
             for ( ; size0 != 0; size0--) {
-              com.example.query.model.ItemListRecord e0 = (ga0 != null ? ga0.peek() : null);
+              com.example.query.model.OrderedItem e0 = (ga0 != null ? ga0.peek() : null);
               if (e0 == null) {
-                e0 = new com.example.query.model.ItemListRecord();
+                e0 = new com.example.query.model.OrderedItem();
               }
               e0.customDecode(in);
               a0.add(e0);

@@ -3,13 +3,13 @@ spring.cloud.stream:
     definition: orderSupplier;orderProcessor
   bindings:
     orderSupplier-out-0:
-      destination: order-received
+      destination: demo-cqrs-order-received
       producer:
         useNativeEncoding: true
     orderProcessor-in-0:
-      destination: order-received
+      destination: demo-cqrs-order-received
     orderProcessor-out-0:
-      destination: order-validated
+      destination: demo-cqrs-order-validated
   kafka:
     bindings:
       orderSupplier-out-0:
@@ -20,7 +20,7 @@ spring.cloud.stream:
             schema.registry.url: http://localhost:8081
     streams:
       binder:
-        applicationId: kafka-cqrs-command
+        applicationId: kafka-cqrs-command-${random.int}
         configuration:
           schema.registry.url: http://localhost:8081
           commit.interval.ms: 100
@@ -28,4 +28,4 @@ spring.cloud.stream:
             key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
             value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
 
-server.port: 9009
+server.port: 9001

@@ -1,10 +1,11 @@
 package com.example.command.controller;
 
-import com.example.command.mapper.OrderMapper;
-import com.example.command.model.OrderReceived;
-import com.example.command.model.OrderRequest;
+import com.example.command.mapper.CommandMapper;
+import com.example.command.model.Order;
+import com.example.command.model.ReceivedOrder;
 import org.mapstruct.factory.Mappers;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.support.KafkaHeaders;
@@ -17,26 +18,31 @@ import reactor.core.publisher.EmitterProcessor;
 import reactor.core.publisher.Flux;
 
 import java.time.Instant;
+import java.util.UUID;
 import java.util.function.Supplier;
-
 
 @RestController
 public class CommandController {
-    private final EmitterProcessor<Message<OrderReceived>> messageEmitterProcessor = EmitterProcessor.create();
+    private final EmitterProcessor<Message<ReceivedOrder>> messageEmitterProcessor = EmitterProcessor.create();
 
-    @PostMapping(value = "/order", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity createUser(@RequestBody OrderRequest orderRequest) {
-        OrderReceived orderReceived = Mappers.getMapper(OrderMapper.class).requestToReceived(orderRequest);
-        orderReceived.setTsReceived(Instant.now().toEpochMilli());
+    @PostMapping(value = "/orders", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Order> createUser(@RequestBody Order order) {
+        String orderId = order.getOrderId() == null ? UUID.randomUUID().toString() : order.getOrderId();
+        order.setOrderId(orderId);
 
-        messageEmitterProcessor.onNext(MessageBuilder.withPayload(orderReceived)
-                .setHeader(KafkaHeaders.MESSAGE_KEY, orderReceived.getCustomerId()).build());
+        // initiate asynchronous processing of the order
+        ReceivedOrder receivedOrderMessage = Mappers.getMapper(CommandMapper.class).getReceivedOrderMessage(order);
+        receivedOrderMessage.setOrderId(orderId);
+        receivedOrderMessage.setTsReceived(Instant.now().toEpochMilli());
+        messageEmitterProcessor.onNext(MessageBuilder.withPayload(receivedOrderMessage)
+                .setHeader(KafkaHeaders.MESSAGE_KEY, receivedOrderMessage.getCustomerId()).build());
 
-        return ResponseEntity.ok().build();
+        // send back a response confirming the recipient of the order
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(order);
     }
 
     @Bean
-    public Supplier<Flux<Message<OrderReceived>>> orderSupplier() {
+    public Supplier<Flux<Message<ReceivedOrder>>> orderSupplier() {
         return () -> messageEmitterProcessor;
     }
 }

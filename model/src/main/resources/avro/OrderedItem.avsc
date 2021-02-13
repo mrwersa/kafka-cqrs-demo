@@ -1,19 +1,25 @@
 {
   "namespace": "com.example.query.model",
   "type": "record",
-  "name": "Item",
+  "name": "OrderedItem",
   "fields": [
     {
-      "name": "item",
+      "name": "customerId",
       "type": "string"
     },
     {
-      "name": "colour",
+      "name": "label",
       "type": "string"
     },
     {
       "name": "price",
       "type": "double"
+    },
+    {
+      "name": "quantity",
+      "type": "int",
+      "default": 1,
+      "order" : "ignore"
     }
   ]
 }

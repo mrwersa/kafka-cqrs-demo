@@ -5,17 +5,17 @@ spring.cloud.stream:
   bindings:
     # green
     itemProcessor-in-0:
-      destination: order-validated
+      destination: demo-cqrs-order-validated
     itemProcessor-out-0:
-      destination: red-item
+      destination: demo-cqrs-cheap-item
     itemProcessor-out-1:
-      destination: blue-item
+      destination: demo-cqrs-affordable-item
     itemProcessor-out-2:
-      destination: green-item
+      destination: demo-cqrs-expensive-item
   kafka:
     streams:
       binder:
-        applicationId: kafka-cqrs-query-1
+        applicationId: kafka-cqrs-query-${random.int}
         configuration:
           schema.registry.url: http://localhost:8081
           commit.interval.ms: 100
@@ -23,4 +23,4 @@ spring.cloud.stream:
             key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
             value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
 
-server.port: 9008
+server.port: 9002
