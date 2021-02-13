@@ -17,7 +17,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"customerId\": \"customer1\",\n    \"itemLabel\": \"Notebook\",\n    \"itemPrice\": 4.0\n}"
+					"raw": "{\n    \"customerId\": \"customer1\",\n    \"itemLabel\": \"Microwave\",\n    \"itemPrice\": 99.9\n}"
 				},
 				"url": {
 					"raw": "{{commandBaseUrl}}/orders",
@@ -37,7 +37,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{queryBaseUrl}}/orders?customerId=customer1&price=CHEAP",
+					"raw": "{{queryBaseUrl}}/orders?customerId=customer1&price=EXPENSIVE",
 					"host": [
 						"{{queryBaseUrl}}"
 					],
@@ -51,7 +51,7 @@
 						},
 						{
 							"key": "price",
-							"value": "CHEAP"
+							"value": "EXPENSIVE"
 						}
 					]
 				}
