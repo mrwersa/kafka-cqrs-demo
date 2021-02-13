@@ -1,4 +1,4 @@
-package com.example.command;
+package com.example.command.processor;
 
 import com.example.command.mapper.OrderMapper;
 import com.example.command.model.OrderReceived;

@@ -1,4 +1,4 @@
-package com.example.query;
+package com.example.query.controller;
 
 import com.example.common.model.Colour;
 import com.example.query.mapper.ItemMapper;
@@ -24,7 +24,7 @@ public class QueryController {
     private InteractiveQueryService queryService;
 
     @GetMapping(value = "/order/{customerId}/item", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity getAddress(@PathVariable(value = "customerId") String customerId,
+    public ResponseEntity<List<ItemResponse>> getAddress(@PathVariable(value = "customerId") String customerId,
                                      @RequestParam(value = "colour") Colour colour) {
         // get the item store for the given colour
         String storeName = colour.label + "-item-store";

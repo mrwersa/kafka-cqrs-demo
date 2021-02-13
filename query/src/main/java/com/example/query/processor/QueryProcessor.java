@@ -1,4 +1,4 @@
-package com.example.query;
+package com.example.query.processor;
 
 import com.example.command.model.OrderValidated;
 import com.example.common.model.Colour;
