@@ -15,7 +15,7 @@ spring.cloud.stream:
   kafka:
     streams:
       binder:
-        applicationId: kafka-cqrs-query-${random.int}
+        applicationId: kafka-cqrs-query-processor
         configuration:
           schema.registry.url: http://localhost:8081
           commit.interval.ms: 100
