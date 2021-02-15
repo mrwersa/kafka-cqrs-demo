@@ -19,7 +19,7 @@
       "name": "quantity",
       "type": "int",
       "default": 1,
-      "order" : "ignore"
+      "order": "ignore"
     }
   ]
 }
