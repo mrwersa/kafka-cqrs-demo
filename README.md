@@ -7,6 +7,7 @@ I suggest [running Confluent using Docker containers](https://docs.confluent.io/
 
 You'll also need [Postman](https://www.postman.com/downloads/) to test the demo.
 ## Build
+Make sure that you are using Java 11+. 
 Do a `mvn clean install` to get the following jar files:
 
 - Command: `/command/target/command-0.0.1.jar`
