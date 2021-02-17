@@ -2,7 +2,7 @@ package com.example.command.util;
 
 import com.example.command.mapper.CommandMapper;
 import com.example.command.model.ReceivedOrder;
-import com.example.command.model.ValidatedOrder;
+import com.example.common.model.ValidatedOrder;
 import org.mapstruct.factory.Mappers;
 
 import java.time.Instant;

@@ -55,7 +55,7 @@
         </dependency>
         <dependency>
             <groupId>com.example</groupId>
-            <artifactId>model</artifactId>
+            <artifactId>query-model</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

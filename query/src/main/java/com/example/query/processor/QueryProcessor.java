@@ -1,7 +1,7 @@
 package com.example.query.processor;
 
-import com.example.command.model.ValidatedOrder;
 import com.example.common.model.Price;
+import com.example.common.model.ValidatedOrder;
 import com.example.query.model.OrderedItem;
 import com.example.query.util.ProcessorUtil;
 import org.apache.kafka.streams.kstream.KStream;
@@ -18,7 +18,7 @@ public class QueryProcessor {
 
     Predicate<String, OrderedItem> isItemCheap = (k, v) -> v.getPrice() < 5;
     Predicate<String, OrderedItem> isItemAffordable = (k, v) -> v.getPrice() >= 5 && v.getPrice() < 50;
-    Predicate<String, OrderedItem> isItemExpensive = (k, v) -> v.getPrice() > 5;
+    Predicate<String, OrderedItem> isItemExpensive = (k, v) -> v.getPrice() > 50;
 
     @Bean
     public Function<KStream<String, ValidatedOrder>, KStream<String, OrderedItem>[]> itemProcessor() {

@@ -2,7 +2,7 @@ package com.example.command.mapper;
 
 import com.example.command.model.Order;
 import com.example.command.model.ReceivedOrder;
-import com.example.command.model.ValidatedOrder;
+import com.example.common.model.ValidatedOrder;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

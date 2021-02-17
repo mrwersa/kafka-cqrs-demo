@@ -1,8 +1,8 @@
 package com.example.command.processor;
 
 import com.example.command.model.ReceivedOrder;
-import com.example.command.model.ValidatedOrder;
 import com.example.command.util.ProcessorUtil;
+import com.example.common.model.ValidatedOrder;
 import org.apache.kafka.streams.kstream.KStream;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;

@@ -1,6 +1,6 @@
 package com.example.query.mapper;
 
-import com.example.command.model.ValidatedOrder;
+import com.example.common.model.ValidatedOrder;
 import com.example.query.model.Item;
 import com.example.query.model.OrderedItem;
 import org.mapstruct.Mapper;

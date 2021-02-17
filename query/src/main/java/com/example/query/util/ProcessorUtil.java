@@ -1,6 +1,6 @@
 package com.example.query.util;
 
-import com.example.command.model.ValidatedOrder;
+import com.example.common.model.ValidatedOrder;
 import com.example.query.mapper.QueryMapper;
 import com.example.query.model.OrderedItem;
 import com.example.query.model.OrderedItemsList;
