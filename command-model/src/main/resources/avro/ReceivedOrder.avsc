@@ -1,0 +1,28 @@
+{
+  "namespace": "com.example.command.model",
+  "type": "record",
+  "name": "ReceivedOrder",
+  "fields": [
+    {
+      "name": "orderId",
+      "type": "string"
+    },
+    {
+      "name": "customerId",
+      "type": "string"
+    },
+    {
+      "name": "itemLabel",
+      "type": "string"
+    },
+    {
+      "name": "itemPrice",
+      "type": "double"
+    },
+    {
+      "name": "ts_received",
+      "type": "long",
+      "default": 0
+    }
+  ]
+}
